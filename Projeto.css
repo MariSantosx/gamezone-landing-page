@@ -1,3 +1,4 @@
+
 /* ========================================
    RESET - Zera as configurações padrão do navegador
    ======================================== */
@@ -164,4 +165,172 @@ p {
     color: #000000;       /* texto preto */
     text-shadow: none;    /* remove brilho do texto */
     box-shadow: 0px 0px 30px rgba(173, 255, 0, 0.7); /* brilho mais forte */
+
+/* ========================================
+   RESET - Zera as configurações padrão do navegador
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================================
+   BODY - Configurações gerais da página
+   ======================================== */
+body {
+    background-color: #0a0a0a; /* fundo preto */
+    background-image: 
+        radial-gradient(ellipse at top, #b36609 0%, transparent 60%),         /* gradiente laranja no topo */
+        radial-gradient(ellipse at bottom right, #000000 0%, transparent 60%); /* gradiente preto embaixo */
+    min-height: 100vh;                 /* ocupa no mínimo 100% da altura da tela */
+    font-family: "Rajdhani", sans-serif; /* fonte padrão da página */
+}
+
+/* ========================================
+   HEADER - Barra de navegação do topo
+   ======================================== */
+header {
+    display: flex;        /* coloca os itens em linha */
+    align-items: center;  /* alinha verticalmente no centro */
+    padding: 30px 76px;   /* espaço interno: 30px cima/baixo, 76px esquerda/direita */
+    gap: 30px;            /* espaço entre os itens do menu */
+}
+
+/* Links do menu */
+.link-Menu {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 600;
+    font-size: 20px;          /* tamanho dos links */
+    color: #989D9C;           /* cor cinza padrão */
+    cursor: pointer;          /* cursor de mão ao passar o mouse */
+    text-decoration: none;    /* remove o sublinhado padrão do link */
+    transition: color 0.3s ease; /* animação suave na mudança de cor */
+}
+
+/* Efeito ao passar o mouse nos links */
+.link-Menu:hover {
+    color: #ff7300;                     /* muda para verde neon */
+    text-shadow: 0px 0px 10px #ececec;  /* brilho neon verde */
+}
+
+/* Botão "Entrar na Vila" do header */
+.botao {
+    background: #d44508;       /* roxo */
+    border-radius: 20.5px;     /* bordas arredondadas */
+    width: 150px;
+    height: 41px;
+    border: none;
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin-left: auto;          /* empurra o botão para o lado direito */
+    transition: all 0.3s ease;  /* animação suave em todas as propriedades */
+    box-shadow: 0px 0px 15px rgba(255, 254, 254, 0.5); /* brilho roxo ao redor */
+}
+
+/* Efeito ao passar o mouse no botão do header */
+.botao:hover {
+    background: #7b6ff5;                               /* roxo mais claro */
+    box-shadow: 0px 0px 25px rgba(102, 90, 225, 0.8);  /* brilho mais forte */
+}
+
+/* ========================================
+   MAIN - Conteúdo principal da página
+   ======================================== */
+main {
+    display: flex;              /* coloca imagem e texto lado a lado */
+    align-items: center;        /* alinha verticalmente no centro */
+    justify-content: center;    /* centraliza horizontalmente */
+    padding: 40px 76px;         /* espaço interno */
+    gap: 80px;                  /* espaço entre a imagem e o texto */
+    min-height: calc(100vh - 100px); /* ocupa o restante da tela após o header */
+}
+
+/* ========================================
+   IMAGEM - Personagem/logo principal
+   ======================================== */
+.Narutos {
+    width: 420px;
+    height: 420px;
+    object-fit: contain; /* imagem cabe sem distorcer */
+    filter: drop-shadow(0px 0px 30px rgba(1, 176, 229, 0.4)); /* brilho neon verde ao redor da imagem */
+}
+
+/* ========================================
+   DIV - Caixa que envolve os textos
+   ======================================== */
+div {
+    display: flex;           /* coloca os elementos em coluna */
+    flex-direction: column;  /* empilha título, subtítulo, texto e botão */
+    max-width: 550px;        /* largura máxima da caixa de texto */
+}
+
+/* ========================================
+   TÍTULO PRINCIPAL - Efeito neon
+   ======================================== */
+h1 {
+    font-family: "Press Start 2P", cursive; /* fonte estilo videogame */
+    font-size: 36px;         /* menor para não quebrar linha */
+    line-height: 1.2;        /* espaço entre linhas do título */
+    color: #f6f600;          /* verde neon */
+    text-shadow: 
+        0px 0px 20px #ff7700,                  /* brilho forte */
+        0px 0px 40px rgba(173, 255, 0, 0.5);   /* brilho suave ao redor */
+    margin-bottom: 24px;
+}
+
+/* ========================================
+   SUBTÍTULO
+   ======================================== */
+h2 {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.3;
+    color: #ffffff;      /* branco */
+    margin-bottom: 16px;
+}
+
+/* ========================================
+   PARÁGRAFO
+   ======================================== */
+p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.6;    /* espaço entre as linhas do texto */
+    color: #848484;      /* cinza */
+    margin-bottom: 40px;
+}
+
+/* ========================================
+   BOTÃO "EXPLORE" - Botão principal com efeito neon
+   ======================================== */
+.botaozinho {
+    background: transparent;       /* fundo transparente */
+    border: 2px solid #eef600;     /* borda amarela neon */
+    border-radius: 30px;           /* bordas bem arredondadas */
+    width: 220px;
+    height: 60px;
+    cursor: pointer;
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: #d0f407;                        /* texto verde neon */
+    text-shadow: 0px 0px 10px #ADFF00;     /* brilho no texto */
+    box-shadow: 
+        0px 0px 15px rgba(173, 255, 0, 0.3),      /* brilho externo */
+        inset 0px 0px 15px rgba(173, 255, 0, 0.1); /* brilho interno */
+    transition: all 0.3s ease; /* animação suave em todas as propriedades */
+}
+
+/* Efeito ao passar o mouse no botão Explore */
+.botaozinho:hover {
+    background: #f8f402;  /* preenche com verde neon */
+    color: #000000;       /* texto preto */
+    text-shadow: none;    /* remove brilho do texto */
+    box-shadow: 0px 0px 30px rgba(173, 255, 0, 0.7); /* brilho mais forte */
+
 }
