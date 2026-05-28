@@ -1,0 +1,560 @@
+/* ========================================
+   RESET - Zera configurações do navegador
+   ======================================== */
+
+   *{
+    margin: 0;
+    padding: 0;
+    box-sizing:0;
+   }
+
+   /* ========================================
+   BODY - Configurações gerais
+   ======================================== */
+
+   body{
+      background-color: #141414;
+      font-family:'Netflix Sans', Arial, sans-serif;
+      color: #ffffff
+   }
+
+   /* ========================================
+   HEADER - Barra de navegação fixa no topo
+   position: fixed - fica fixo mesmo ao rolar a página
+   ======================================== */
+
+   header{
+      display:flex;
+      align-items: center;
+      justify-content: space-between; /* logo na esquerda, botão na direita */
+      padding: 20px 30px;
+      position: fixed;    /* fixo no topo da tela */
+      top: 0;             /* colado no topo */
+      left: 0;            /* colado na esquerda */
+      width: 100%;        /* ocupa toda a largura */
+      z-index: 100;       /* fica na frente de tudo */
+    /* Gradiente escurecendo de cima para baixo - igual Netflix */
+      background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, transparent 100%);
+      overflow:hidden;
+   }
+
+
+    .logo{
+      font-size: 24px;
+      font-weight: 900;
+      color: #f4c522; /* amarelo dourado do One Piece */
+      letter-spacing: 3px;
+      text-shadow: 2px 2px 10px rgba(244,197,34,0.5);
+      cursor: pointer;
+
+    }
+
+    /* ========================================
+   NAV - Menu de navegação
+   ======================================== */
+      nav{
+         display:flex;
+         gap: 15px;
+      }
+
+      .nav-link{
+         font-size: 14px;
+         color: #e5e5e5;
+         text-decoration: none;
+         font-size: 16px;
+         font-weight: 500;
+         transition: color 0.3s ease;
+         position: relative; /* necessário para o pseudo-elemento funcionar */
+
+      }
+
+      /* Pseudo-elemento - linha aparecendo embaixo do link ao passar o mouse */
+.nav-link::after {
+    content: "";              /* conteúdo vazio */
+    position: absolute;       /* posicionado em relação ao link */
+    bottom: -4px;             /* 4px abaixo do texto */
+    left: 0;
+    width: 0;                 /* começa com largura 0 */
+    height: 2px;
+    background: #f4c522;      /* linha dourada */
+    transition: width 0.3s ease; /* animação crescendo */
+
+}
+
+/* Ao passar o mouse a linha cresce até 100% */
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+}
+
+/* ========================================
+   BOTÃO DE PERFIL
+   ======================================== */
+
+   .btn-perfil{
+      background: transparent;
+      border: 2px solid #f4c522;
+      border-radius: 5px;
+      color: #f4c522;
+      font-size: 14px;
+      padding: 8px 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+
+   }
+
+   
+
+.btn-perfil:hover {
+    background: #f4c522;
+    color: #000000;
+}
+
+/* ========================================
+   RESPONSIVO - Celular
+   ======================================== */
+
+   @media (max-width: 768px) {
+    header {
+        padding: 15px 20px; /* menos espaço no celular */
+    }
+
+    .logo {
+        font-size: 22px; /* logo menor no celular */
+    }
+
+    nav {
+        display: none; /* esconde o menu no celular */
+    }
+
+    .btn-perfil {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+}
+
+/* ========================================
+   HERO - Seção principal com imagem de fundo
+   ======================================== */
+   .hero{
+       position: relative;  /* necessário para posicionar elementos filhos */
+    width: 100%;
+    height: 100vh;       /* ocupa 100% da altura da tela */
+    background-image: url("https://i.pinimg.com/736x/34/bf/8c/34bf8c57475e28b9538fb023c133e9c5.jpg");
+    background-size: cover;      /* imagem cobre todo o elemento */
+    background-position: center; /* centraliza a imagem */
+    background-repeat: no-repeat;
+}
+ 
+/* ========================================
+   HERO OVERLAY - Gradiente escuro por cima da imagem
+   Usa position absolute para ficar em cima da imagem
+   ======================================== */
+.hero-overlay {
+    position: absolute; /* fica em cima do hero */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradiente vindo da esquerda - igual Netflix */
+    background: linear-gradient(
+        to right,
+        rgba(0,0,0,0.95) 0%,    /* preto forte na esquerda */
+        rgba(0,0,0,0.6) 50%,    /* meio transparente no meio */
+        rgba(0,0,0,0.1) 100%    /* quase transparente na direita */
+    ),
+    /* Gradiente vindo de baixo */
+    linear-gradient(
+        to top,
+        rgba(20,20,20,1) 0%,    /* escuro embaixo */
+        transparent 30%          /* transparente em cima */
+    );
+}
+
+/* ========================================
+   HERO CONTEÚDO - Textos e botões
+   position absolute para ficar em cima do overlay
+   ======================================== */
+
+   .hero-conteudo{
+      position: absolute; /* fica em cima do overlay */
+      bottom: 15%; /* 15% do fundo */
+      left: 5%; /* 5% da esquerda */
+      max-width: 600px; /* largura máxima */
+
+   }
+
+   /* ========================================
+   BADGE - Categoria do anime
+   ======================================== */
+.badge {
+    display: inline-block;
+    background: rgba(244, 197, 34, 0.2);  /* amarelo transparente */
+    border: 1px solid #f4c522;
+    color: #f4c522;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* ========================================
+   TÍTULO DO HERO
+   ======================================== */
+.hero-titulo {
+    font-size: 80px;
+    font-weight: 900;
+    color: #f4c522;
+    line-height: 1;
+    margin-bottom: 15px;
+    text-shadow: 
+        3px 3px 20px rgba(0,0,0,0.8),
+        0px 0px 40px rgba(244, 197, 34, 0.3); /* brilho dourado */
+}
+
+/* ========================================
+   INFORMAÇÕES - Avaliação, episódios, etc
+   ======================================== */
+.hero-info {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    font-size: 16px;
+    color: #e5e5e5;
+    font-weight: 600;
+}
+
+/* ========================================
+   SINOPSE
+   ======================================== */
+.hero-sinopse {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #d0d0d0;
+    margin-bottom: 30px;
+    max-width: 550px;
+}
+
+/* ========================================
+   BOTÕES DO HERO
+   ======================================== */
+.hero-botoes {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* quebra linha no celular */
+}
+
+/* Botão principal - Assistir */
+.btn-assistir {
+    background: #f4c522;   /* amarelo dourado */
+    color: #000000;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 22px;
+    font-weight:900;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-assistir:hover {
+    background: #ffd700;
+    transform: scale(1.05); /* cresce levemente */
+    box-shadow: 0px 0px 20px rgba(244, 197, 34, 0.5);
+}
+
+/* Botão secundário - Minha Lista */
+.btn-lista {
+    background: rgba(255,255,255,0.2); /* branco transparente */
+    color: #ffffff;
+    border: 2px solid rgba(255,255,255,0.5);
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(1px); /* desfoque no fundo */
+}
+.btn-lista:hover {
+    background: rgba(255,255,255,0.4);
+    border-color: #ffffff;
+}
+
+/* Botão de informações */
+.btn-info {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(255,255,255,0.3);
+    padding: 15px 25px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-info:hover {
+    border-color: #f4c522;
+    color: #f4c522;
+}
+
+/* ========================================
+   RESPONSIVO - Celular
+   ======================================== */
+@media (max-width: 768px) {
+    .hero-titulo {
+        font-size: 45px; /* título menor no celular */
+    }
+
+    .hero-sinopse {
+        font-size: 15px;
+    }
+
+    .hero-conteudo {
+        left: 5%;
+        right: 5%;
+        bottom: 10%;
+        max-width: 100%; /* ocupa toda a largura no celular */
+    }
+
+    .hero-info {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .btn-assistir,
+    .btn-lista,
+    .btn-info {
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+}
+
+/* ========================================
+   FILEIRA - Seção de cards estilo Netflix
+   ======================================== */
+.fileira {
+    padding: 40px 50px;
+    background: #141414; /* fundo escuro */
+}
+
+/* ========================================
+   TÍTULO DA FILEIRA
+   ======================================== */
+.fileira-titulo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #f4c522;
+    margin-bottom: 20px;
+}
+
+/* ========================================
+   CONTAINER DOS CARDS - Scroll horizontal
+   igual Netflix
+   ======================================== */
+.fileira-cards {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;    /* scroll horizontal */
+    padding-bottom: 15px;
+    scrollbar-width: none; /* esconde a barra de scroll no Firefox */
+}
+
+/* Esconde a barra de scroll no Chrome */
+.fileira-cards::-webkit-scrollbar {
+    display: none;
+}
+
+/* ========================================
+   CARD - Cada item da fileira
+   ======================================== */
+.card {
+    position: relative;   /* necessário para o card-info ficar por cima */
+    min-width: 200px;     /* largura mínima do card */
+    height: 300px;
+    border-radius: 8px;
+    overflow: hidden;     /* esconde o que passar do card */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;       /* não deixa o card encolher */
+}
+
+/* Efeito ao passar o mouse no card */
+.card:hover {
+    transform: scale(1.08);  /* cresce levemente */
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.8);
+    z-index: 10; /* fica na frente dos outros cards */
+}
+
+/* ========================================
+   IMAGEM DO CARD
+   ======================================== */
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* imagem cobre o card sem distorcer */
+    display: block;
+}
+
+/* ========================================
+   INFO DO CARD - Aparece ao passar o mouse
+   Usa position absolute para ficar em cima da imagem
+   ======================================== */
+.card-info {
+    position: absolute; /* fica em cima da imagem */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    /* Gradiente escuro vindo de baixo */
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.95) 0%,
+        transparent 100%
+    );
+    /* Escondido por padrão */
+    opacity: 0;
+    transform: translateY(10px); /* começa 10px abaixo */
+    transition: all 0.3s ease;
+}
+
+/* Aparece ao passar o mouse no card */
+.card:hover .card-info {
+    opacity: 1;
+    transform: translateY(0); /* volta para posição normal */
+}
+
+.card-info h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.card-info p {
+    font-size: 13px;
+    color: #d0d0d0;
+    margin-bottom: 8px;
+}
+
+/* ========================================
+   BADGE DE AVALIAÇÃO
+   ======================================== */
+.card-badge {
+    background: rgba(244, 197, 34, 0.2);
+    border: 1px solid #f4c522;
+    color: #f4c522;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* ========================================
+   RESPONSIVO - Celular
+   ======================================== */
+@media (max-width: 768px) {
+    .fileira {
+        padding: 30px 20px;
+    }
+
+    .fileira-titulo {
+        font-size: 18px;
+    }
+
+    .card {
+        min-width: 150px; /* cards menores no celular */
+        height: 220px;
+    }
+}
+
+/* ========================================
+   SEGUNDA FILEIRA - mesma classe, reutiliza o CSS
+   Não precisa de CSS novo, já está pronto!
+   ======================================== */
+
+/* ========================================
+   FOOTER - Rodapé
+   ======================================== */
+footer {
+    background: #0a0a0a;
+    padding: 50px;
+    text-align: center;
+    border-top: 1px solid rgba(244, 197, 34, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.footer-logo {
+    font-size: 36px;
+    font-weight: 900;
+    color: #f4c522;
+    letter-spacing: 5px;
+    text-shadow: 0px 0px 20px rgba(244, 197, 34, 0.4);
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-links a {
+    color: #848484;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #f4c522;
+}
+
+.footer-info p {
+    color: #555555;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* ========================================
+   EFEITO DE SCROLL - Header muda de cor ao rolar
+   Controlado pelo JavaScript
+   ======================================== */
+header.scrolled {
+    background: rgba(0,0,0,0.98); /* fundo bem escuro ao rolar */
+    box-shadow: 0px 2px 20px rgba(0,0,0,0.8);
+    transition: background 0.3s ease;
+}
+
+/* ========================================
+   RESPONSIVO - Footer no celular
+   ======================================== */
+@media (max-width: 768px) {
+    footer {
+        padding: 30px 20px;
+    }
+
+    .footer-logo {
+        font-size: 24px;
+    }
+
+    .footer-links {
+        gap: 15px;
+    }
+
+    .footer-links a {
+        font-size: 14px;
+    }
+}
